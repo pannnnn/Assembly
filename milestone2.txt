@@ -1,0 +1,19 @@
+a . Front sensor    b. Left sensor  c. Right Sensor
+
+1.  Load Threshold value for all three sensors
+2.  Polling till pushbutton being pressed
+3.  Lego Car moves forward (make it slow using polling) and at the same time enable interrupts for sensors c
+4.  Right Hand Rule:
+    
+    Not triggered (polling):
+    a 1 b 1|0 c 1|0 : Move Forward
+    a 0 b 1|0 c 1 : Turn Right
+    a 0 b 0 c 0 : Move Back
+    a 0 b 1 c 0 : Turn Left
+    
+    triggered:
+    if it is moving back: turn right and move forward
+    else    a 0 turn right
+            a 1 turn right a little bit
+
+    Notice: When making left or right turn, time should be accurate to finish the turning, and the interrupts should be turned off.
